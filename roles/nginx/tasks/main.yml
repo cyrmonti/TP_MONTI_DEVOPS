@@ -1,0 +1,24 @@
+---
+# tasks file for nginx
+- apt_key: keyserver=pgp.mit.edu id=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
+
+- apt_repository:
+    repo: 'deb http://nginx.org/packages/mainline/ubuntu trusty nginx'
+    # filename: nginx (2.1)
+    state: present
+
+- name: install package ca-certificates
+  apt: 
+    name: ca-certificates
+    state: present
+
+
+- name: install package nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: install package gettext-base
+  apt: 
+    name: gettext-base
+    state: present

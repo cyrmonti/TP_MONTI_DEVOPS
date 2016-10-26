@@ -1,0 +1,20 @@
+---
+
+# Delegate further configuration to subtasks
+# placed in this same directory.
+
+- include: install.yml
+- include: configure.yml
+
+- name: Ensure supervisord is running
+  sudo: yes
+  service:
+    name: "{{supervisord_service_name}}"
+    state: running
+    enabled: yes
+  tags:
+    - init
+    - supervisor
+    - supervisord
+- name: Start supervisor service
+  service: name=supervisor state=started enabled=true

@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: true
+  remote_user: vagrant
+  roles:
+   - {role: "nginx"}
+   - {role: "sqlite"}
+   - {role: "supervisord"}
+   - {role: "gunicorn"}
+   - {role: "flask"}
+
+
+    
+
+
+
